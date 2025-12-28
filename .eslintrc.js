@@ -1,0 +1,35 @@
+module.exports = {
+  root: true,
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
+    sourceType: 'module',
+    ecmaVersion: 2021,
+  },
+  plugins: ['@typescript-eslint', 'n8n-nodes-base'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:n8n-nodes-base/community',
+    'prettier',
+  ],
+  env: {
+    node: true,
+    es2021: true,
+    jest: true,
+  },
+  ignorePatterns: ['dist/', 'node_modules/', '*.js'],
+  rules: {
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    'n8n-nodes-base/node-param-description-missing-final-period': 'off',
+    'n8n-nodes-base/node-param-description-excess-final-period': 'off',
+    'n8n-nodes-base/node-param-description-unneeded-backticks': 'off',
+    'n8n-nodes-base/node-param-placeholder-miscased-id': 'off',
+    'no-console': 'warn',
+    'prefer-const': 'error',
+    'no-var': 'error',
+  },
+};
